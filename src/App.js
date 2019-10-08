@@ -1,9 +1,10 @@
 import React from 'react';
-import './App.css';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './components/Main/Main';
-// import { directive } from 'babel-types';
+
+import './App.css';
 
 class App extends React.Component {
   render() {
@@ -16,5 +17,4 @@ class App extends React.Component {
     );
   }
 }
-
 export default App;
