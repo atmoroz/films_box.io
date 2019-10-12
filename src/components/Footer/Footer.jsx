@@ -1,7 +1,13 @@
 import React from 'react';
 import './Footer.css';
+import { withRouter } from 'react-router';
 
 class Footer extends React.Component {
+
+    showFavorites = () => {
+        this.props.history.push(`/movieFavorites/`);
+    }
+
     render() {
         return(
             <footer className='footer'>
@@ -12,6 +18,7 @@ class Footer extends React.Component {
                                 <img className="footer_logo__img" src="/image/footer_logo.svg" alt="logo"/>
                             </a>
                         </div>
+                        <button className='favoritesButton' onClick={this.showFavorites}>Favorites</button>
                         <div className="footer_link">
                             <a href="/">About</a>
                             <a href="/">Movies</a>
@@ -35,4 +42,4 @@ class Footer extends React.Component {
     }
 }
 
-export default Footer;
+export default withRouter(Footer);
