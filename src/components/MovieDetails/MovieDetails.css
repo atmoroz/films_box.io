@@ -21,6 +21,7 @@
     width: 400px;
     height: 500px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 .filmsButton {
     height: 30px;

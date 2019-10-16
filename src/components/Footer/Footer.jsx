@@ -5,6 +5,9 @@ import { withRouter } from 'react-router';
 class Footer extends React.Component {
 
     showFavorites = () => {
+        let localList = localStorage.getItem('idFavorit');
+        localList = JSON.parse(localList);
+        if( localList === null )  return;
         this.props.history.push(`/movieFavorites/`);
     }
 

@@ -17,6 +17,7 @@ class App extends React.Component {
         <div className='filmsBox'>
           <Header />
           <Route exact path="/" component = { Main } />
+          <Route path="/page/:page" component = { Main } />
           <Route  path="/movieDetails/:id" component = { MovieDetails } />
           <Route path="/movieFavorites/" component = { Favorites } />
           <Footer />

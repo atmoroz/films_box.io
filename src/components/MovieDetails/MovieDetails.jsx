@@ -44,12 +44,11 @@ class MovieDetails extends React.Component {
     chooseButton = () => {
         let { favoriteList } = this.props.filmsStores;
         let {id} = this.props.match.params;
-        return favoriteList.includes(+id) ? <button className='filmsButton ' onClick={this.removeFaforits}>remove favorits</button> : 
-        <button className='filmsButton ' onClick={this.addFaforits}>add favorits</button>
+        return favoriteList.includes(+id) ? this.removeFaforits : this.addFaforits;
     }
 
     render() {
-        const { detailsFilms } = this.props.filmsStores;
+        const { detailsFilms, isFavotiteFilms } = this.props.filmsStores;
                 
         return(
             <section className='filmsDetails'>
@@ -59,7 +58,8 @@ class MovieDetails extends React.Component {
                 <div className="detailsInfo">
                     <div className="filmsLogo">
                         <img src={`https://image.tmdb.org/t/p/original${detailsFilms.poster_path}`} alt="/"/>
-                        { this.chooseButton() }
+                        <button className='filmsButton' onClick={ this.chooseButton() } >{ isFavotiteFilms ? `remove favorits` : `add favorits` }</button>
+                        {/* { this.chooseButton() } */}
                     </div>
                     <div className="filmsDescriptions">
                         <h2 className="filmsTitle">{ detailsFilms.original_title }</h2>

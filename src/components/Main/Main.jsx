@@ -2,6 +2,7 @@ import React from 'react';
 import { observer, inject } from 'mobx-react';
 
 import Movie from '../Movie/Movie';
+import Pagination from '../Pagination/Pagination';
 import './Main.css';
 
 
@@ -10,8 +11,9 @@ import './Main.css';
 @observer class Main extends React.Component {
 
     async componentDidMount() {
-        const { gettingMovie, gettingGenres } = this.props.filmsStores
-        await Promise.all([gettingMovie(), gettingGenres()]);
+        const { page } = this.props.match.params;
+        const { gettingMovie, gettingGenres } = this.props.filmsStores;
+        await Promise.all([gettingMovie(page), gettingGenres()]);
     }
 
     renderMovies = (item => {
@@ -33,6 +35,7 @@ import './Main.css';
                 <div className="main_content layout">
                     { films.map(this.renderMovies) }                  
                 </div>
+                {<Pagination />}
             </section>
         );
     }
