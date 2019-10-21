@@ -1,0 +1,48 @@
+.detailsHeader {
+    width: 100%;
+    height: 500px;
+}
+.detailsHeader > img {
+    width: 100%;
+    height: inherit;
+}
+
+.detailsInfo {
+    display: flex;
+    padding: 40px 20px 20px;
+    background-color: #fcfcfc;
+}
+.filmsLogo {
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+.filmsLogo > img {
+    width: 400px;
+    height: 500px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+.filmsButton {
+    height: 30px;
+    font-size: 16px;
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #606276;
+    cursor: pointer;
+}
+
+
+.filmsTitle {
+    margin: 0 0 20px;
+    line-height: 1;
+}
+.filmsDescriptions {
+    width: 50%;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.filmsOverview {
+    margin-bottom: 20px;
+}
