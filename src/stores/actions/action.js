@@ -12,6 +12,10 @@ export const FETCH_DETAILS = 'FETCH_DETAILS';
 export const FETCH_DETAILS_SUCCESS = 'FETCH_DETAILS_SUCCESS';
 export const FETCH_DETAILS_ERROR = 'FETCH_DETAILS_ERROR';
 
+export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
+
+export const REMOVE_IS_FAVORITES = 'REMOVE_IS_FAVORITES';
+
 export const fetchMovie = () => async dispatch => {
     dispatch({
         type: FETCH_MOVIES
@@ -33,7 +37,7 @@ export const fetchMovie = () => async dispatch => {
         })
         console.log(e, 'Error');
     }
-}
+};
 
 export const fetchGenre = () => async dispatch => {
     dispatch({
@@ -59,7 +63,7 @@ export const fetchGenre = () => async dispatch => {
         })
         console.log(e, 'Error');
     }
-}
+};
 
 export const fetchDetails = ( movie_id ) => async dispatch => {
     dispatch({
@@ -82,4 +86,16 @@ export const fetchDetails = ( movie_id ) => async dispatch => {
         })
         console.log(e, 'Error');
     }
-} 
+}; 
+
+export const addToFavorite = () =>  dispatch => {
+    dispatch({
+        type: ADD_TO_FAVORITES
+    })
+};
+
+export const removeIsFavorite = () => dispatch => {
+    dispatch({
+        type: REMOVE_IS_FAVORITES
+    })
+};

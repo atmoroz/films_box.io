@@ -1,10 +1,11 @@
 const initialState = {
     movies: [],
     genres: {},
-    movieDetails: {}
+    movieDetails: {},
+    favoriteList: JSON.parse(localStorage.getItem("favoriteId")) || [],
 };
 
-const reducer = (state = initialState, action) => {
+const reducer = ( state = initialState, action ) => {
     switch(action.type) {
         case 'FETCH_MOVIES_SUCCESS':
             return {
@@ -21,9 +22,19 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 movieDetails: action.payload.data
             };
+        case 'ADD_TO_FAVORITES':
+            return {
+                ...state,
+                favoriteList: [...state.favoriteList, state.movieDetails.id]
+            };
+        case 'REMOVE_IS_FAVORITES':
+            return {
+                ...state,
+                favoriteList: [...state.favoriteList.filter(item => item !== state.movieDetails.id)]
+            };
         default: 
             return state;
     }
-}
+};
 
 export default reducer;
