@@ -16,16 +16,21 @@ export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 
 export const REMOVE_IS_FAVORITES = 'REMOVE_IS_FAVORITES';
 
-export const fetchMovie = () => async dispatch => {
+export const fetchMovie = (page) => async dispatch => {
     dispatch({
         type: FETCH_MOVIES
     });
     try {
-        const { data } = await axios.get("/movie/now_playing");
+        const { data } = await axios.get("/movie/now_playing", {
+            params: {
+                page: page
+            }
+        });
         dispatch({
             type: FETCH_MOVIES_SUCCESS,
             payload: {
-                data: data.results
+                data: data.results,
+                totalPages: data.total_pages
             }
         })
     } catch(e) {

@@ -3,6 +3,7 @@ const initialState = {
     genres: {},
     movieDetails: {},
     favoriteList: JSON.parse(localStorage.getItem("favoriteId")) || [],
+    totalPages: 0,
 };
 
 const reducer = ( state = initialState, action ) => {
@@ -10,7 +11,8 @@ const reducer = ( state = initialState, action ) => {
         case 'FETCH_MOVIES_SUCCESS':
             return {
                 ...state,
-                movies: action.payload.data
+                movies: action.payload.data,
+                totalPages: action.payload.totalPages
             };
         case 'FETCH_GENRE_SUCCESS':
             return {

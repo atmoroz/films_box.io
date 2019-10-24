@@ -5,6 +5,7 @@
 .detailsHeader > img {
     width: 100%;
     height: inherit;
+    background: black;
 }
 
 .detailsInfo {
@@ -22,6 +23,7 @@
     height: 500px;
     margin-bottom: 20px;
     cursor: pointer;
+    background: black;
 }
 .filmsButton {
     height: 30px;

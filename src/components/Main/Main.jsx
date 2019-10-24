@@ -3,13 +3,16 @@ import { connect } from "react-redux";
 
 import * as actions from "../../stores/actions/action";
 import Movie from '../Movie/Movie';
+import Pagination from '../Pagination/Pagination';
+
 import './Main.css';
 
 class Main extends React.Component {
 
     async componentDidMount() {
-        const { fetchMovie, fetchGenre } = this.props
-        await Promise.all([fetchMovie(), fetchGenre()])
+      const { page } = this.props.match.params;
+      const { fetchMovie, fetchGenre } = this.props
+      await Promise.all([fetchMovie(page), fetchGenre()])
     }
 
     movieRender = (item) => {
@@ -30,6 +33,7 @@ class Main extends React.Component {
                     { movies.map(this.movieRender) }                     
                     
                 </div>
+                <Pagination />
             </section>
         );
     }
@@ -38,13 +42,14 @@ class Main extends React.Component {
 function mapStateToProps(store) {
     return {
       movies: store.movies,
-      genres: store.genres
+      genres: store.genres,
+      totalPages: store.totalPages,
     };
   }
   
   function mapDispatcToProps(dispatch) {
     return {
-      fetchMovie: () => dispatch(actions.fetchMovie()),
+      fetchMovie: (page) => dispatch(actions.fetchMovie(page)),
       fetchGenre: () => dispatch(actions.fetchGenre())
     }
   }

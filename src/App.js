@@ -14,6 +14,7 @@ class App extends React.Component {
         <div className='filmsBox'>
           <Header />
           <Route exact path="/" component={ Main } />
+          <Route path="/page/:page" component={Main} />
           <Route path="/movie/:id" component={ MovieDetails } />
           <Footer />
         </div>

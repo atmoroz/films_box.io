@@ -3,6 +3,7 @@ import { withRouter } from "react-router";
 
 import './Movie.css';
 
+
 class Movie extends React.Component {
 
     renderGenre = (genres, i, arr) => {
@@ -17,11 +18,12 @@ class Movie extends React.Component {
 
     render() {
         const { item } = this.props;
+        
         return(
             <div className='movieWrap' onClick = {this.filmDetails}>
                 <div className="movie_preview">
                     <div className="movie_img">
-                        <img className="movie_img__img" src={process.env.REACT_APP_IMG_URL+item.poster_path} alt="logan" width="100%" />
+                        <img className="movie_img__img" src={ item.poster_path !== null ? process.env.REACT_APP_IMG_URL+item.poster_path : `../image/noImage.svg` } alt="/" width="100%" />
                         <span className="movie_year">{item.release_date.split('-')[0]}</span>
                     </div>
                     <div className="movie_description">
